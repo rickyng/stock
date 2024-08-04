@@ -61,18 +61,18 @@ def parseTrade(row):
     #trades[stock]['Total']['amount'] += (float(proceed) + float(row['Comm/Fee']))
     #trades[stock]['Total']['position'] += int(row['Quantity'].replace(',', ''))
     week [week_time_str][row['Asset Category']][stock + ", " + row['Currency']]['amount'] += (float(proceed) + float(row['Comm/Fee']))
-    week [week_time_str][row['Asset Category']][stock + ", " + row['Currency']]['position'] += int(row['Quantity'].replace(',', ''))
+    week [week_time_str][row['Asset Category']][stock + ", " + row['Currency']]['position'] += float(row['Quantity'].replace(',', ''))
 
     trades[row['Asset Category']][trade_date_time_str][row['Symbol']]['Symbol'] = stock
     trades[row['Asset Category']][trade_date_time_str][row['Symbol']]['Currency'] = row['Currency']
     trades[row['Asset Category']][trade_date_time_str][row['Symbol']]['amount'] += (float(proceed) + float(row['Comm/Fee']))
-    trades[row['Asset Category']][trade_date_time_str][row['Symbol']]['position'] += int(row['Quantity'].replace(',', ''))
+    trades[row['Asset Category']][trade_date_time_str][row['Symbol']]['position'] += float(row['Quantity'].replace(',', ''))
     trades[row['Asset Category']][trade_date_time_str][row['Symbol']]['price'] = float(price.replace(',', ''))
 
 #with open("/Users/rickyng/Downloads/U5797815_20210101_20210312.csv", 'r') as csvfile:
 
 
-with open("/Users/rickyng/Downloads/U5668308_20230102_20230628.csv", 'r') as csvfile:  #no1
+with open("/Users/rickyng/Downloads/U5668308_20240101_20240802.csv", 'r') as csvfile:  #no1
 #with open("/Users/rickyng/Downloads/U9371321_20230102_20230526.csv", 'r') as csvfile:   #no2
 #with open("/Users/rickyng/Downloads/U5797815_20220103_20220113.csv", 'r') as csvfile:    #winnie
     spam_reader = csv.reader(csvfile, delimiter=',')
